@@ -1,45 +1,50 @@
 package com.belajar.ramadhan;
 
+import com.belajar.ramadhan.factories.attributes.Transmition;
+import com.belajar.ramadhan.factories.implementors.MPVImplementor;
+import com.belajar.ramadhan.factories.implementors.SuvImplementor;
+import com.belajar.ramadhan.factories.implementors.TruckImplementor;
+import com.belajar.ramadhan.factories.models.Vehicle;
+
+import java.beans.VetoableChangeListener;
+
 /**
  * Hello world!
  *
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-//        Kalkulator kalkulator = new Kalkulator();
-//        int hasil = kalkulator.jumlahkan(10, 20);
-//        Kalkulator.sayHello();
-//        System.out.println(hasil);
-//        BahanBakar bahanBakar = new BahanBakar();
-//        Payment payment = new Payment();
+    public static void main( String[] args ) {
+//        Employee developer1 = new Developer("fukato@gmail.com", "123asik", "Fukato Nemo");
+//        Employee hrd1 = new HRD("budiatmoko@gmail.com", "123asikbanget", "Budi Atmoko");
 //
-//        Mobil asemKa = new Mobil(bahanBakar, payment);
-//        asemKa.jalan();
-//        asemKa.jalan();
-//        asemKa.jalan();
-//        asemKa.checkBahanBakar();
-//        asemKa.checkBill();
+//        developer1.gajian(17000000);
+//        System.out.println(developer1.getSalary());
+//
+//        hrd1.gajian(8000000);
+//        System.out.println(hrd1.getSalary());
+//
+//        Farhan2025 farhan = new Farhan2025();
+//        farhan.planA();
+//        farhan.planB();
+//        farhan.planC();
 
-        Skin skinDefault = new Skin("Default Skin", 3);
-        Skill playerSkill = new Skill(5, 10, 15);
-        Skill enemySkill = new Skill(6, 12, 18);
+        Transmition automaticTransmition = new Transmition(true);
+        Transmition manualTransmition = new Transmition(true);
 
-        Hero layla = new Hero("Layla", 3, 100, playerSkill, skinDefault);
-        Hero miya = new Hero("Miya", 3, 100, enemySkill, skinDefault);
-        System.out.println("HP Miya: " + miya.getHp());
-        System.out.println("HP Layla: " + layla.getHp());
+        Vehicle avanzo = new MPVImplementor();
+        avanzo.setTransmition(automaticTransmition);
+        avanzo.brake();
+        avanzo.throttle();
 
-        System.out.println("Attack 1");
-        layla.attack(miya);
-        System.out.println("HP Miya: " + miya.getHp());
-        System.out.println("HP Layla: " + layla.getHp());
+        Vehicle fortunar = new SuvImplementor();
+        fortunar.setTransmition(manualTransmition);
+        fortunar.brake();
+        fortunar.throttle();
 
-        System.out.println("Attack 2");
-        layla.attack(miya);
-        System.out.println("HP Miya: " + miya.getHp());
-        System.out.println("HP Layla: " + layla.getHp());
-
+        Vehicle hine = new TruckImplementor();
+        hine.setTransmition(manualTransmition);
+        hine.brake();
+        hine.throttle();
     }
 }
