@@ -1,5 +1,8 @@
 package com.belajar.ramadhan;
 
+import com.belajar.ramadhan.ecommerce.implementors.BukuDigital;
+import com.belajar.ramadhan.ecommerce.implementors.BukuFisik;
+import com.belajar.ramadhan.ecommerce.interfaces.IBook;
 import com.belajar.ramadhan.factories.attributes.Transmition;
 import com.belajar.ramadhan.factories.implementors.MPVImplementor;
 import com.belajar.ramadhan.factories.implementors.SuvImplementor;
@@ -29,22 +32,34 @@ public class App
 //        farhan.planB();
 //        farhan.planC();
 
-        Transmition automaticTransmition = new Transmition(true);
-        Transmition manualTransmition = new Transmition(true);
+//        Transmition automaticTransmition = new Transmition(true);
+//        Transmition manualTransmition = new Transmition(true);
+//
+//        Vehicle avanzo = new MPVImplementor();
+//        avanzo.setTransmition(automaticTransmition);
+//        avanzo.brake();
+//        avanzo.throttle();
+//
+//        Vehicle fortunar = new SuvImplementor();
+//        fortunar.setTransmition(manualTransmition);
+//        fortunar.brake();
+//        fortunar.throttle();
+//
+//        Vehicle hine = new TruckImplementor();
+//        hine.setTransmition(manualTransmition);
+//        hine.brake();
+//        hine.throttle();
 
-        Vehicle avanzo = new MPVImplementor();
-        avanzo.setTransmition(automaticTransmition);
-        avanzo.brake();
-        avanzo.throttle();
+        BukuDigital bukuDilanDigital = new BukuDigital();
+        BukuFisik bukuHarryPotter2 = new BukuFisik();
 
-        Vehicle fortunar = new SuvImplementor();
-        fortunar.setTransmition(manualTransmition);
-        fortunar.brake();
-        fortunar.throttle();
+        bukuDilanDigital.read();
+        bukuHarryPotter2.read();
 
-        Vehicle hine = new TruckImplementor();
-        hine.setTransmition(manualTransmition);
-        hine.brake();
-        hine.throttle();
+        bukuDilanDigital.checkStock();
+        bukuHarryPotter2.checkStock();
+
+        bukuDilanDigital.checkSample();
+        bukuHarryPotter2.checkSample();
     }
 }
